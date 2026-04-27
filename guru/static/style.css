@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+:root {
+    --bg-gradient: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    --primary-color: #4F46E5;
+    --primary-hover: #4338CA;
+    --text-main: #1F2937;
+    --text-muted: #6B7280;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --border-color: rgba(255, 255, 255, 0.5);
+    
+    /* Category Colors */
+    --color-underweight: #3B82F6; /* Blue */
+    --color-normal: #10B981;      /* Green */
+    --color-overweight: #F59E0B;  /* Yellow/Orange */
+    --color-obese: #EF4444;       /* Red */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    width: 100%;
+}
+
+/* Cards & Glassmorphism */
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 0.5rem;
+}
+
+.card p, .card li {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.card ul {
+    padding-left: 1.5rem;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.05);
+}
+
+.btn-center {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(255,255,255,0.9);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+/* Calculator Result Colors */
+.underweight { color: var(--color-underweight); }
+.normal { color: var(--color-normal); }
+.overweight { color: var(--color-overweight); }
+.obese { color: var(--color-obese); }
+
+.result-card {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 16px;
+    background: #fff;
+    border: 2px solid #e5e7eb;
+}
+
+.result-card h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.result-card .bmi-value {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 1rem 0;
+}
+
+/* CSS-Only Progress Bar */
+.progress-container {
+    width: 100%;
+    background-color: #e5e7eb;
+    border-radius: 9999px;
+    height: 1.5rem;
+    margin: 1.5rem 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 9999px;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Width will be set via inline style based on score */
+}
+
+/* Dynamically setting background color of progress bar based on classes */
+.underweight .progress-bar { background-color: var(--color-underweight); }
+.normal .progress-bar { background-color: var(--color-normal); }
+.overweight .progress-bar { background-color: var(--color-overweight); }
+.obese .progress-bar { background-color: var(--color-obese); }
+
+/* Animation for the progress bar */
+@keyframes loadProgress {
+    from { width: 0; }
+}
+
+.progress-bar {
+    animation: loadProgress 1.5s ease-out forwards;
+}
+
+.health-score {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.error-message {
+    background-color: #FEE2E2;
+    color: #B91C1C;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #F87171;
+    text-align: center;
+}
+
+footer {
+    background: #111827;
+    color: #9CA3AF;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0.25rem 0;
+}
+
+footer .team {
+    font-weight: 600;
+    color: #D1D5DB;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+}

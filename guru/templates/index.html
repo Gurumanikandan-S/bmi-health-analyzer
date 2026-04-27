@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Health Analyzer | Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Smart Health Analyzer</h1>
+        <p>Empower yourself with health insights using your BMI and daily caloric needs.</p>
+    </header>
+
+    <main>
+        <!-- Top Call to action -->
+        <div class="card" style="text-align: center;">
+            <h2>Start Your Health Journey</h2>
+            <p>Calculate your Body Mass Index (BMI) and discover personalized suggestions for a healthier life.</p>
+            <div class="btn-center">
+                <a href="/calculator" class="btn">Check Your Health Score</a>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <!-- Section 1 -->
+            <div class="card">
+                <h2>What is BMI?</h2>
+                <img src="{{ url_for('static', filename='images/bmi_hero.png') }}" alt="BMI Illustration" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                <p>Body Mass Index (BMI) is a simple index of weight-for-height that is commonly used to classify underweight, overweight and obesity in adults. It is defined as a person's weight in kilograms divided by the square of his height in meters (kg/m²).</p>
+            </div>
+            
+            <!-- Section 2 -->
+            <div class="card">
+                <h2>BMI Categories</h2>
+                <ul>
+                    <li><strong class="underweight">Underweight:</strong> BMI less than 18.5</li>
+                    <li><strong class="normal">Normal weight:</strong> BMI 18.5 to 24.9</li>
+                    <li><strong class="overweight">Overweight:</strong> BMI 25 to 29.9</li>
+                    <li><strong class="obese">Obesity:</strong> BMI 30 or greater</li>
+                </ul>
+                <p>These categories are intended to be a general guide and do not apply to athletes, children, pregnant women, or the elderly.</p>
+            </div>
+            
+            <!-- Section 3 -->
+            <div class="card">
+                <h2>Understanding Calories</h2>
+                <p>A calorie is a unit of energy. In nutrition, calories refer to the energy people get from the food and drink they consume, and the energy they use in physical activity.</p>
+                <p>Maintaining a healthy weight means balancing the calories you eat and drink with the calories you burn. To lose weight, you must eat fewer calories than your body uses.</p>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="card">
+                <h2>Obesity</h2>
+                <p><strong>Causes:</strong> Consuming more calories than you burn, sedentary lifestyle, genetics, and certain medications.</p>
+                <p><strong>Effects:</strong> Increased risk of heart disease, type 2 diabetes, certain cancers, and musculoskeletal disorders.</p>
+                <p><strong>Prevention:</strong> Eating a balanced diet, regular physical activity, and maintaining a healthy weight.</p>
+            </div>
+        </div>
+
+        <div class="card" style="margin-top: 2rem;">
+            <h2>Healthy Lifestyle Tips</h2>
+            <img src="{{ url_for('static', filename='images/healthy_lifestyle.png') }}" alt="Healthy Lifestyle" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; margin-bottom: 1rem;">
+            <ul>
+                <li><strong>Eat a balanced diet:</strong> Include plenty of fruits, vegetables, whole grains, and lean proteins.</li>
+                <li><strong>Stay active:</strong> Aim for at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous aerobic activity a week.</li>
+                <li><strong>Stay hydrated:</strong> Drink plenty of water throughout the day.</li>
+                <li><strong>Get enough sleep:</strong> Aim for 7 to 9 hours of quality sleep per night.</li>
+                <li><strong>Manage stress:</strong> Practice relaxation techniques such as meditation or yoga.</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Smart Health Analyzer Project</p>
+        <p class="team">Designed by The Health Tech Team</p>
+    </footer>
+</body>
+</html>
